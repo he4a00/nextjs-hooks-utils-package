@@ -1,18 +1,39 @@
 {
-  "name": "nextjs-hooks-utils-package",
+  "name": "nextjs-utils-hooks",
   "version": "1.0.0",
   "description": "A collection of useful hooks and utils built specifically for Next.js App Router.",
   "main": "dist/index.js",
     "types": "dist/index.d.ts",
   "author": "Ahmed Hashem",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/he4a00/nextjs-hooks-utils-package.git"
+  },
+  "bugs": {
+    "url": "https://github.com/he4a00/nextjs-hooks-utils-package/issues"
+  },
+  "homepage": "https://github.com/he4a00/nextjs-hooks-utils-package#readme",
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "tsc"
   },
-  "keywords": [],
+  "keywords": [
+    "nextjs",
+    "next",
+    "react",
+    "hooks",
+    "app-router",
+    "typescript",
+    "utilities",
+    "debounce",
+    "query-params",
+    "window-size",
+    "client-side",
+    "next15"
+  ],
   "devDependencies": {
     "@types/react": "^19.2.2",
     "typescript": "^5.9.3"
