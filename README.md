@@ -40,16 +40,12 @@ pnpm add nextjs-utils-hooks
 Detect if code is running on the client side. Useful for preventing hydration mismatches.
 
 ```tsx
-import { useIsClient } from 'nextjs-utils-hooks';
+import { useIsClient } from "nextjs-utils-hooks";
 
 function MyComponent() {
   const isClient = useIsClient();
 
-  return (
-    <div>
-      {isClient ? 'Running on client' : 'Running on server'}
-    </div>
-  );
+  return <div>{isClient ? "Running on client" : "Running on server"}</div>;
 }
 ```
 
@@ -58,10 +54,10 @@ function MyComponent() {
 Debounce any value with a customizable delay. Perfect for search inputs and API calls.
 
 ```tsx
-import { useDebounce } from 'nextjs-utils-hooks';
+import { useDebounce } from "nextjs-utils-hooks";
 
 function SearchComponent() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const debouncedSearch = useDebounce(searchTerm, 500);
 
   useEffect(() => {
@@ -82,6 +78,7 @@ function SearchComponent() {
 ```
 
 **Parameters:**
+
 - `value: T` - The value to debounce
 - `delay?: number` - Delay in milliseconds (default: 300)
 
@@ -90,15 +87,15 @@ function SearchComponent() {
 Manage URL query parameters with ease. Get and set query params with automatic URL updates.
 
 ```tsx
-import { useQueryParam } from 'nextjs-utils-hooks';
+import { useQueryParam } from "nextjs-utils-hooks";
 
 function FilterComponent() {
-  const [category, setCategory] = useQueryParam('category');
+  const [category, setCategory] = useQueryParam("category");
 
   return (
     <div>
-      <p>Current category: {category || 'none'}</p>
-      <button onClick={() => setCategory('electronics')}>
+      <p>Current category: {category || "none"}</p>
+      <button onClick={() => setCategory("electronics")}>
         Set Electronics
       </button>
     </div>
@@ -113,14 +110,16 @@ function FilterComponent() {
 Track window dimensions with automatic updates on resize.
 
 ```tsx
-import { useWindowSize } from 'nextjs-utils-hooks';
+import { useWindowSize } from "nextjs-utils-hooks";
 
 function ResponsiveComponent() {
   const { width, height } = useWindowSize();
 
   return (
     <div>
-      <p>Window size: {width} x {height}</p>
+      <p>
+        Window size: {width} x {height}
+      </p>
       {width < 768 ? <MobileView /> : <DesktopView />}
     </div>
   );
@@ -134,7 +133,7 @@ function ResponsiveComponent() {
 Track page loading state during navigation. Combines loading state with React transitions.
 
 ```tsx
-import { usePageLoad } from 'nextjs-utils-hooks';
+import { usePageLoad } from "nextjs-utils-hooks";
 
 function LoadingIndicator() {
   const isLoading = usePageLoad();
@@ -144,6 +143,65 @@ function LoadingIndicator() {
 ```
 
 **Returns:** `boolean` - `true` when page is loading
+
+### `useRouteChange`
+
+Listen to route changes in Next.js App Router with customizable callbacks.
+
+```tsx
+import { useRouteChange } from "nextjs-utils-hooks";
+
+function MyLayout({ children }) {
+  useRouteChange({
+    onStart: (url) => {
+      console.log("Navigation started to:", url);
+      // Show loading indicator
+    },
+    onComplete: (url) => {
+      console.log("Navigation completed to:", url);
+      // Hide loading indicator, track analytics, etc.
+    },
+  });
+
+  return <div>{children}</div>;
+}
+```
+
+**Parameters:**
+
+- `onStart?: (url: string) => void` - Called when route change begins
+- `onComplete?: (url: string) => void` - Called when route change completes (with 100ms delay)
+
+### `useServerAction`
+
+Manage server action state with loading and error handling. Perfect for forms and server mutations.
+
+```tsx
+import { useServerAction } from "nextjs-utils-hooks";
+import { submitForm } from "./actions";
+
+function FormComponent() {
+  const { runAction, loading, error } = useServerAction(submitForm);
+
+  const handleSubmit = async (formData: FormData) => {
+    await runAction(formData);
+  };
+
+  return (
+    <form action={handleSubmit}>
+      <input name="email" type="email" />
+      <button disabled={loading}>{loading ? "Submitting..." : "Submit"}</button>
+      {error && <p className="error">{error.message}</p>}
+    </form>
+  );
+}
+```
+
+**Returns:**
+
+- `runAction: (...args: Parameters<T>) => Promise<void>` - Execute the server action
+- `loading: boolean` - Loading state
+- `error: Error | null` - Error object if action fails
 
 ## 🔧 Requirements
 

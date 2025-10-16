@@ -32,7 +32,10 @@
     "query-params",
     "window-size",
     "client-side",
-    "next15"
+    "next15",
+    "next16",
+    "react19",
+    "route"
   ],
   "devDependencies": {
     "@types/react": "^19.2.2",
