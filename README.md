@@ -4,6 +4,7 @@
 
 [![npm version](https://img.shields.io/npm/v/nextjs-utils-hooks.svg)](https://www.npmjs.com/package/nextjs-utils-hooks)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm downloads](https://img.shields.io/npm/dw/nextjs-utils-hooks.svg?color=purple)](https://www.npmjs.com/package/nextjs-utils-hooks)
 
 ## 📦 Installation
 
