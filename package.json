@@ -1,9 +1,9 @@
 {
   "name": "nextjs-utils-hooks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collection of useful hooks and utils built specifically for Next.js App Router.",
   "main": "dist/index.js",
-    "types": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "author": "Ahmed Hashem",
   "license": "MIT",
   "repository": {
@@ -42,5 +42,4 @@
     "next": "^15.5.5",
     "react": "^19.2.0"
   }
-  
 }
