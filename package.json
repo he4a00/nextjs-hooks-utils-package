@@ -35,7 +35,16 @@
     "next15",
     "next16",
     "react19",
-    "route"
+    "route",
+    "uuid",
+    "url",
+    "window-size",
+    "scroll-to-element",
+    "time-since",
+    "measure-execution-time",
+    "is-valid-url",
+    "get-platform",
+    "generate-uuid"
   ],
   "devDependencies": {
     "@types/react": "^19.2.2",
